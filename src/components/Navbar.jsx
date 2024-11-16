@@ -77,16 +77,18 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
           </g>
         </svg>
       )}
-
+      <Hr className=" top-[59px] fixed"/>
+      
       {openNav && (
-        <div className="flex flex-col items-center justify-start gap-5 absolute top-14 left-0 right-0 h-[calc(100vh-56px)] bg-blue-200">
-          <div className="hover:text-blue-300 mt-20 text-2xl">Home</div>
-          <div className="hover:text-blue-300 text-2xl">Works</div>
-          <div className="hover:text-blue-300 text-2xl">Features</div>
-          <div className="hover:text-blue-300 text-2xl">Services</div>
-          <div className="hover:text-blue-300 text-2xl">Pricing</div>
-        </div>
+        <NavDiv className="flex flex-col md:hidden cursor-pointer items-center justify-start gap-5 absolute top-[58px] left-0 right-0 h-[calc(100vh-58px)] bg-blue-200 ">
+          <div className="hover:text-blue-300 mt-10 text-2xl transition-transform transform translate-y-5">Home</div>
+          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">Works</div>
+          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">Features</div>
+          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">Services</div>
+          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">Pricing</div>
+        </NavDiv>
       )}
+
     </StyledDiv>
   );
 };
@@ -97,4 +99,25 @@ const StyledDiv = styled.div`
   background: ${(props) => props.theme.gradients.navbar};
   color: ${(props) => props.theme.colors.lightText};
   height: 60px;
+  border: none;
+`;
+
+
+const NavDiv = styled.div`
+  background: ${(props) => props.theme.colors.background};
+  animation: slide 0.5s ease-out forwards;
+  @keyframes slide {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+`;
+
+const Hr = styled.hr`
+  width: 98%;
+  margin-left: 10px;
 `;
