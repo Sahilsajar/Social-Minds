@@ -17,7 +17,7 @@ function App() {
     <>
 
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-        <Navbar toggleTheme={toggleTheme} />
+        <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
         <Routes>
         <Route path="/" element={<Home></Home>}></Route>
       </Routes>
