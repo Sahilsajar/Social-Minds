@@ -15,12 +15,14 @@ function App() {
 
   return (
     <>
+
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
         <Navbar toggleTheme={toggleTheme} />
-      </ThemeProvider>
-      <Routes>
+        <Routes>
         <Route path="/" element={<Home></Home>}></Route>
       </Routes>
+      </ThemeProvider>
+      
     </>
   );
 }
