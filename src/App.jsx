@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={isDarkMode?darkTheme:lightTheme}>
-        <Navbar toggleTheme={toggleTheme}/>
+          <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
       </ThemeProvider>
     </>
   );
