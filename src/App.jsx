@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/Contact" element={<Contact></Contact>}></Route>
         
       </Routes>
+      <Footer/>
       </ThemeProvider>
 
       
