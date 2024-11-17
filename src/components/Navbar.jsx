@@ -1,12 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { MdOutlineLightMode, MdLightMode } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ThemeContext } from "../themeContext/ThemeContext";
+
 
 const Navbar = () => {
   const [openNav, setOpenNav] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setOpenNav(false);
+  },[location])
 
   console.log(theme)
   return (
@@ -90,14 +97,14 @@ const Navbar = () => {
           </g>
         </svg>
       )}
-      <Hr className="top-[59px] fixed" />
+      <Hr className="top-[59px] fixed md:w-[98%] w-[90%]" />
       {openNav && (
         <NavDiv className="flex flex-col md:hidden cursor-pointer items-center justify-start gap-5 absolute top-[58px] left-0 right-0 h-[calc(100vh-58px)] text-gray-600 bg-blue-500 dark:bg-black dark:text-white">
           <Link to="/" className="hover:text-blue-300 mt-10 text-2xl">
             Home
           </Link>
-          <Link to="/works" className="hover:text-blue-300 text-2xl">
-            Works
+          <Link to="/contact" className="hover:text-blue-300 text-2xl">
+            Contact
           </Link>
           <Link to="/features" className="hover:text-blue-300 text-2xl">
             Features
@@ -139,6 +146,6 @@ const NavDiv = styled.div`
 `;
 
 const Hr = styled.hr`
-  width: 98%;
+  
   margin-left: 10px;
 `;
