@@ -1,65 +1,76 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { MdOutlineLightMode } from "react-icons/md";
-import { MdLightMode } from "react-icons/md";
+import { MdOutlineLightMode, MdLightMode } from "react-icons/md";
 import { Link } from "react-router-dom";
-const Navbar = ({ toggleTheme, isDarkMode }) => {
+import { ThemeContext } from "../themeContext/ThemeContext";
+
+const Navbar = () => {
   const [openNav, setOpenNav] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  console.log(theme)
   return (
-    <StyledDiv className="flex items-center fixed top-0 left-0 right-0 z-50">
-      <h1 className="ml-10">Navbar</h1>
-      <div className="hidden items-center absolute right-0 mr-20 gap-9 cursor-pointer w-fit md:flex ">
-        <Link to={"/"} className="hover:text-blue-300">
+    <>
+    <StyledDiv className="flex items-center text-gray-600 bg-white dark:bg-dark dark:text-white fixed top-0 left-0 right-0 z-50">
+      <h1 className="ml-10">
+        Logo
+      </h1>
+      <div className="hidden md:flex items-center absolute right-0 mr-20 gap-9 cursor-pointer w-fit">
+        <Link to="/" className="hover:text-blue-300">
           Home
         </Link>
-        <Link className="hover:text-blue-300">Works</Link>
-        <Link className="hover:text-blue-300">Features</Link>
-        <Link className="hover:text-blue-300">Services</Link>
-        <Link className="hover:text-blue-300">Pricing</Link>
+        <Link to="/works" className="hover:text-blue-300">
+          Works
+        </Link>
+        <Link to="/features" className="hover:text-blue-300">
+          Features
+        </Link>
+        <Link to="/services" className="hover:text-blue-300">
+          Services
+        </Link>
+        <Link to="/pricing" className="hover:text-blue-300">
+          Pricing
+        </Link>
       </div>
       <div
         className="absolute md:right-10 right-20 cursor-pointer"
         onClick={toggleTheme}
       >
-        {isDarkMode ? (
-          <MdOutlineLightMode size={20} />
+        {theme === "light" ? (
+          <MdOutlineLightMode size={24} className="text-black" aria-label="Light mode icon" />
         ) : (
-          <MdLightMode size={20} />
+          <MdLightMode size={24} className="text-white" aria-label="Dark mode icon" />
         )}
       </div>
 
       {openNav ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          xml:space="preserve"
           viewBox="0 0 101 101"
           width="28"
           height="28"
-          id="cross"
           className="absolute right-5 md:hidden cursor-pointer transition-transform transform rotate-90"
           onClick={() => setOpenNav(!openNav)}
+          aria-label="Close menu"
         >
           <path
-            fill={!isDarkMode ? "#000000" : "#ffffff"}
+            fill="currentColor"
             d="M83.9 17.1c-.9-.9-2.5-.9-3.4 0l-30 30-30-30c-.9-.9-2.5-.9-3.4 0s-.9 2.5 0 3.4l30 30-30 30c-.9.9-.9 2.5 0 3.4.5.5 1.1.7 1.7.7.6 0 1.2-.2 1.7-.7l30-30 30 30c.5.5 1.1.7 1.7.7.6 0 1.2-.2 1.7-.7.9-.9.9-2.5 0-3.4l-30-30 30-30c.9-.9.9-2.4 0-3.4z"
           ></path>
         </svg>
       ) : (
-        // Hamburger Menu Icon
         <svg
-          version="1.0"
           xmlns="http://www.w3.org/2000/svg"
           width="52"
           height="52"
-          viewBox="0 0 512.000000 512.000000"
-          preserveAspectRatio="xMidYMid meet"
+          viewBox="0 0 512 512"
           className="absolute right-2 md:hidden cursor-pointer"
           onClick={() => setOpenNav(!openNav)}
+          aria-label="Open menu"
         >
           <g
             transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-            fill={!isDarkMode ? "#000000" : "#ffffff"}
-            stroke="none"
+            fill="currentColor"
           >
             <path
               d="M1538 3345 c-34 -19 -48 -44 -48 -85 0 -42 15 -67 50 -85 25 -13 109
@@ -79,43 +90,42 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
           </g>
         </svg>
       )}
-      <Hr className=" top-[59px] fixed" />
-
+      <Hr className="top-[59px] fixed" />
       {openNav && (
-        <NavDiv className="flex flex-col md:hidden cursor-pointer items-center justify-start gap-5 absolute top-[58px] left-0 right-0 h-[calc(100vh-58px)])] bg-blue-200 ">
-          <div className="hover:text-blue-300 mt-10 text-2xl transition-transform transform translate-y-5">
+        <NavDiv className="flex flex-col md:hidden cursor-pointer items-center justify-start gap-5 absolute top-[58px] left-0 right-0 h-[calc(100vh-58px)] text-gray-600 bg-blue-500 dark:bg-black dark:text-white">
+          <Link to="/" className="hover:text-blue-300 mt-10 text-2xl">
             Home
-          </div>
-          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">
+          </Link>
+          <Link to="/works" className="hover:text-blue-300 text-2xl">
             Works
-          </div>
-          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">
+          </Link>
+          <Link to="/features" className="hover:text-blue-300 text-2xl">
             Features
-          </div>
-          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">
+          </Link>
+          <Link to="/services" className="hover:text-blue-300 text-2xl">
             Services
-          </div>
-          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">
+          </Link>
+          <Link to="/pricing" className="hover:text-blue-300 text-2xl">
             Pricing
-          </div>
+          </Link>
         </NavDiv>
       )}
     </StyledDiv>
+    
+    </>
   );
 };
 
 export default Navbar;
 
 const StyledDiv = styled.div`
-  background: ${(props) => props.theme.gradients.navbar};
-  color: ${(props) => props.theme.colors.lightText};
   height: 60px;
   border: none;
 `;
 
 const NavDiv = styled.div`
-  background: ${(props) => props.theme.colors.background};
   animation: slide 0.5s ease-out forwards;
+
   @keyframes slide {
     0% {
       transform: translateY(-100%);
@@ -124,6 +134,7 @@ const NavDiv = styled.div`
     100% {
       transform: translateY(0);
       opacity: 1;
+    }
   }
 `;
 

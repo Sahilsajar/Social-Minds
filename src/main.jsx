@@ -3,21 +3,16 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App.jsx";
-const theme = {
-  primaryColor: "blue",
-  secondaryColor: "gray",
-};
+import { ThemeProvider } from "./themeContext/ThemeContext";
 
-{
-  /* <ThemeProvider theme={theme}>
-  <App />
-</ThemeProvider>; */
-}
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </BrowserRouter>
   </StrictMode>
 );
