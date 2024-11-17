@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { MdOutlineLightMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
+import { Link } from "react-router-dom";
 const Navbar = ({ toggleTheme, isDarkMode }) => {
   const [openNav, setOpenNav] = useState(false);
   return (
-    <StyledDiv className="flex items-center sticky">
+    <StyledDiv className="flex items-center fixed top-0 left-0 right-0 z-50">
       <h1 className="ml-10">Navbar</h1>
       <div className="hidden items-center absolute right-0 mr-20 gap-9 cursor-pointer w-fit md:flex ">
-        <div className="hover:text-blue-300">Home</div>
-        <div className="hover:text-blue-300">Works</div>
-        <div className="hover:text-blue-300">Features</div>
-        <div className="hover:text-blue-300">Services</div>
-        <div className="hover:text-blue-300">Pricing</div>
+        <Link to={"/"} className="hover:text-blue-300">Home</Link>
+        <Link className="hover:text-blue-300">Works</Link>
+        <Link className="hover:text-blue-300">Features</Link>
+        <Link className="hover:text-blue-300">Services</Link>
+        <Link className="hover:text-blue-300">Pricing</Link>
       </div>
       <div
         className="absolute md:right-10 right-20 cursor-pointer"
