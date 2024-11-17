@@ -9,7 +9,9 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
     <StyledDiv className="flex items-center fixed top-0 left-0 right-0 z-50">
       <h1 className="ml-10">Navbar</h1>
       <div className="hidden items-center absolute right-0 mr-20 gap-9 cursor-pointer w-fit md:flex ">
-        <Link to={"/"} className="hover:text-blue-300">Home</Link>
+        <Link to={"/"} className="hover:text-blue-300">
+          Home
+        </Link>
         <Link className="hover:text-blue-300">Works</Link>
         <Link className="hover:text-blue-300">Features</Link>
         <Link className="hover:text-blue-300">Services</Link>
@@ -42,7 +44,6 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
             d="M83.9 17.1c-.9-.9-2.5-.9-3.4 0l-30 30-30-30c-.9-.9-2.5-.9-3.4 0s-.9 2.5 0 3.4l30 30-30 30c-.9.9-.9 2.5 0 3.4.5.5 1.1.7 1.7.7.6 0 1.2-.2 1.7-.7l30-30 30 30c.5.5 1.1.7 1.7.7.6 0 1.2-.2 1.7-.7.9-.9.9-2.5 0-3.4l-30-30 30-30c.9-.9.9-2.4 0-3.4z"
           ></path>
         </svg>
-        
       ) : (
         // Hamburger Menu Icon
         <svg
@@ -78,18 +79,27 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
           </g>
         </svg>
       )}
-      <Hr className=" top-[59px] fixed"/>
-      
+      <Hr className=" top-[59px] fixed" />
+
       {openNav && (
         <NavDiv className="flex flex-col md:hidden cursor-pointer items-center justify-start gap-5 absolute top-[58px] left-0 right-0 h-[calc(100vh-58px)] bg-blue-200 ">
-          <div className="hover:text-blue-300 mt-10 text-2xl transition-transform transform translate-y-5">Home</div>
-          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">Works</div>
-          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">Features</div>
-          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">Services</div>
-          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">Pricing</div>
+          <div className="hover:text-blue-300 mt-10 text-2xl transition-transform transform translate-y-5">
+            Home
+          </div>
+          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">
+            Works
+          </div>
+          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">
+            Features
+          </div>
+          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">
+            Services
+          </div>
+          <div className="hover:text-blue-300 text-2xl transition-transform transform translate-y-5 ">
+            Pricing
+          </div>
         </NavDiv>
       )}
-
     </StyledDiv>
   );
 };
@@ -102,7 +112,6 @@ const StyledDiv = styled.div`
   height: 60px;
   border: none;
 `;
-
 
 const NavDiv = styled.div`
   background: ${(props) => props.theme.colors.background};

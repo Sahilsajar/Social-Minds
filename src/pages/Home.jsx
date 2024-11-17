@@ -1,13 +1,10 @@
 import React from "react";
-import Try from "../components/Try";
-import IntroAniMain from "../components/IntroAniMain";
+import Introduction from "../components/Introduction";
 
 function Home() {
   return (
     <div>
-      <IntroAniMain></IntroAniMain>
-
-      <Try></Try>
+      <Introduction></Introduction>
     </div>
   );
 }
