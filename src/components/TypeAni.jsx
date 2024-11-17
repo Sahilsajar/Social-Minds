@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-function TypeAni() {
+function TypeAni({ isFullWidth }) {
   const staticText = "What Can I Help You";
   const typingWords = ["With?", "Achieve?", "Solve?"]; // Words to cycle through
 
@@ -45,13 +45,25 @@ function TypeAni() {
   }, [charIndex, isErasing, typedText, currentWordIndex, typingWords]);
 
   return (
-    <div className="basis-1/2">
-      <h3>Social Minds have helped Business grow</h3>
-      <div className="typing-container ">
-        {staticText} <span className="TypeAniDiv">{typedText}</span>
-        <span className="cursor">|</span>
+    <div
+      className={
+        isFullWidth
+          ? "leftIntroDiv flex items-center w-0"
+          : "basis-1/2 leftIntroDiv flex items-center"
+      }
+    >
+      <div className="pl-5 leftIntroSubDiv">
+        <h3 className="typAniHeading">
+          Social Minds have helped Business grow
+        </h3>
+        <div className="typing-container">
+          {staticText} <span className="TypeAniDiv">{typedText}</span>
+          <span className="cursor">|</span>
+        </div>
+        <button class="button-64" role="button">
+          <span class="text">Connect Today</span>
+        </button>
       </div>
-      <button>Connect Today</button>
     </div>
   );
 }
