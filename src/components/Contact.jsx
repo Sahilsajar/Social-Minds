@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from "styled-components";
+
+
 import emailjs from 'emailjs-com';
 
 function Contact() {
@@ -9,7 +9,7 @@ function Contact() {
         emailjs.sendForm('service_8oop2kj','template_eim3a8i',e.target,'vuTY47KiOsexBDWrl').then(res=>console.log(res)).catch(err=>console.log(err));
     }
   return (
-    <styledDiv  className="flex flex-col md:flex-row bg-teal-400 min-h-screen p-8">
+    <styledDiv  className="flex flex-col md:flex-row bg-teal-400 mt-[56px] h-[calc(100vh-56px)] p-8">
     {/* left*/}
     <div className='md:w-1/2 md:items-center text-left  flex flex-col mt-4  mb-6 md:mb-0'>
       <h1 className='text-white  lg:text-12xl font-bold text-6xl'>YOUR</h1>

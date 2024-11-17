@@ -82,7 +82,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
       <Hr className=" top-[59px] fixed" />
 
       {openNav && (
-        <NavDiv className="flex flex-col md:hidden cursor-pointer items-center justify-start gap-5 absolute top-[58px] left-0 right-0 h-[calc(100vh-58px)] bg-blue-200 ">
+        <NavDiv className="flex flex-col md:hidden cursor-pointer items-center justify-start gap-5 absolute top-[58px] left-0 right-0 h-[calc(100vh-58px)])] bg-blue-200 ">
           <div className="hover:text-blue-300 mt-10 text-2xl transition-transform transform translate-y-5">
             Home
           </div>
