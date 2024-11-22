@@ -1,3 +1,4 @@
+
 import React from "react";
 import AnimateText from "./AnimateText";
 import Results from "./Results";
@@ -12,3 +13,4 @@ function Try() {
 }
 
 export default Try;
+
