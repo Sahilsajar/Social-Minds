@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 function Card({ name, profile_picture, rating, review_text }) {
   const coverStyle = {
@@ -6,17 +6,16 @@ function Card({ name, profile_picture, rating, review_text }) {
   };
 
   return (
-    <div className=" mx-auto p-6 w-[300px] h-[250px] bg-slate-200 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+    <div className="mx-auto p-6 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto bg-slate-200 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
       {/* Profile Section */}
       <div className="flex items-center mb-4">
         <div
           style={coverStyle}
-          className="w-12 h-12 rounded-full bg-cover bg-center mr-3"
+          className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-cover bg-center mr-3"
           aria-label={`${name}'s profile`}
         ></div>
         <div>
-          <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
-          
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-800">{name}</h3>
         </div>
       </div>
 
@@ -25,7 +24,9 @@ function Card({ name, profile_picture, rating, review_text }) {
         {Array.from({ length: 5 }, (_, index) => (
           <svg
             key={index}
-            className={`w-5 h-5 ${index < rating ? 'text-yellow-500' : 'text-gray-300'}`}
+            className={`w-5 h-5 sm:w-6 sm:h-6 ${
+              index < rating ? "text-yellow-500" : "text-gray-300"
+            }`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -37,7 +38,9 @@ function Card({ name, profile_picture, rating, review_text }) {
       </div>
 
       {/* Review Text */}
-      <p className="text-gray-700 text-l">{review_text}</p>
+      <p className="text-gray-700 text-sm sm:text-base truncate">
+        {review_text}
+      </p>
     </div>
   );
 }

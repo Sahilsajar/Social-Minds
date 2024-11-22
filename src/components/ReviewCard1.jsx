@@ -1,10 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from "react-intersection-observer";
 
 import data from '../assets/data.json';
 import Card from "./Card";
-import { useState } from 'react';
-
 
 const Try = () => {
   const star_5 = useRef(null);
@@ -12,7 +10,6 @@ const Try = () => {
   const star_3 = useRef(null);
   const star_2 = useRef(null);
   const star_1 = useRef(null);
-  
 
   const handleScroll = () => {
     const bars = [
@@ -41,58 +38,48 @@ const Try = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  {/* Comment section Starts */}
   const scrollRef = useRef(null);
-  const [item,SetItem]=useState([]);
-  
- // for scroll 
- useEffect(() => {
-  SetItem(data)
-  const scrollContainer = scrollRef.current;
+  const [item, setItem] = useState([]);
 
-  const scroll = () => {
-    if (!scrollContainer) return;
+  useEffect(() => {
+    setItem(data);
+    const scrollContainer = scrollRef.current;
 
-    const isSmallScreen = window.innerWidth < 1024; // Tailwind's lg breakpoint
-    if (isSmallScreen) {
-      if (
-        scrollContainer.scrollLeft + scrollContainer.clientWidth >=
-        scrollContainer.scrollWidth
-      ) {
-        scrollContainer.scrollLeft = 0; // Reset horizontal scroll position
+    const scroll = () => {
+      if (!scrollContainer) return;
+
+      const isSmallScreen = window.innerWidth < 1024; // Tailwind's lg breakpoint
+      if (isSmallScreen) {
+        if (
+          scrollContainer.scrollLeft + scrollContainer.clientWidth >=
+          scrollContainer.scrollWidth
+        ) {
+          scrollContainer.scrollLeft = 0; // Reset horizontal scroll position
+        } else {
+          scrollContainer.scrollLeft += 1; // Increment horizontal scroll
+        }
       } else {
-        scrollContainer.scrollLeft += 1; // Increment horizontal scroll
+        if (
+          scrollContainer.scrollTop + scrollContainer.clientHeight >=
+          scrollContainer.scrollHeight
+        ) {
+          scrollContainer.scrollTop = 0; // Reset vertical scroll position
+        } else {
+          scrollContainer.scrollTop += 1; // Increment vertical scroll
+        }
       }
-    } else {
-      if (
-        scrollContainer.scrollTop + scrollContainer.clientHeight >=
-        scrollContainer.scrollHeight
-      ) {
-        scrollContainer.scrollTop = 0; // Reset vertical scroll position
-      } else {
-        scrollContainer.scrollTop += 1; // Increment vertical scroll
-      }
-    }
-  };
+    };
 
-  const scrollInterval = setInterval(scroll, 20); // Adjust speed with the interval
+    const scrollInterval = setInterval(scroll, 20); // Adjust speed with the interval
 
-  return () => clearInterval(scrollInterval); // Cleanup on unmount
-}, []);
-
-
-
-
-  
-
-  {/*Coment section ends*/}
+    return () => clearInterval(scrollInterval); // Cleanup on unmount
+  }, []);
 
   return (
-    //main div
-    <div className="h-screen bg-black flex flex-col lg:flex-row items-center lg:justify-evenly space-y-2  md:justify-start md:pl-10">
-    {/*mithles div*/}
-      <div className="delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0 shadow-[-5px_-6px_60px_-1px_rgba(59,_130,_246,_0.5)]
- bg-white p-6 rounded-3xl shadow-md w-3/4 md:w-2/5 h-3/7 md:h-4/6 flex flex-col justify-center" data-taos-offset="400">
+    // Main div
+    <div className="h-screen bg-black flex flex-col lg:flex-row items-center lg:justify-evenly space-y-2 md:justify-start md:pl-10">
+      {/* Middle div (Review and Rating section) */}
+      <div className="delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0 shadow-[-5px_-6px_60px_-1px_rgba(59,_130,_246,_0.5)] bg-white p-6 rounded-3xl shadow-md w-11/12 md:w-2/5 lg:w-2/5 h-auto md:h-4/6 flex flex-col justify-center" data-taos-offset="400">
         <h2 className="text-2xl md:text-4xl font-bold mb-4">Reviews and Ratings</h2>
         <div className="flex items-center mb-4">
           <span className="text-4xl md:text-6xl font-bold">4.6</span>
@@ -156,35 +143,30 @@ const Try = () => {
             <div className="bg-[#ff4545] h-2.5 md:h-3 rounded-full transition-all duration-1000" style={{ width: '0%' }} ref={star_1}></div>
           </div>
         </div>
-        
         <button className="text-blue-500 mt-4 text-sm md:text-lg">Show summary</button>
       </div>
-                {/*Comment section*/}
-                <div
-      ref={scrollRef}
-      className="h-screen lg:overflow-y-scroll w-3/4 lg:w-1/4 md:w-3/5 h-3/7 md:h-4/6 overflow-x-scroll scrollbar-hide bg-transparent flex lg:flex-col flex-row"
-      style={{ scrollBehavior: "smooth" }}
-    >
-      {item.map((item,index) => (
-        <div
-          
-          className="p-4 bg-transparent shadow rounded-lg text-lg text-gray-800 m-2"
-          key={index}
-        >
-          <Card 
-          
-            name={item.name}
-          profile_picture={item.profile_picture}
-          rating={item.rating}
-          review_text={item.review_text}
-            key={item.id} />
-        </div>
-      ))}
+
+      {/* Comment section */}
+      <div
+        ref={scrollRef}
+        className="h-screen lg:overflow-y-scroll w-full lg:w-1/3 md:w-2/3 overflow-x-scroll scrollbar-hide bg-transparent flex lg:flex-col flex-row"
+        style={{ scrollBehavior: "smooth" }}
+      >
+        {item.map((item, index) => (
+          <div
+            className="p-4 bg-transparent w-full lg:w-4/5 xl:w-3/4 shadow rounded-lg text-lg text-gray-800 m-2"
+            key={index}
+          >
+            <Card 
+              name={item.name}
+              profile_picture={item.profile_picture}
+              rating={item.rating}
+              review_text={item.review_text}
+            />
+          </div>
+        ))}
+      </div>
     </div>
-     
-    </div>
-   
-    
   );
 };
 
