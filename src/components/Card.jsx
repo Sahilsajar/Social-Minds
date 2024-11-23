@@ -6,16 +6,16 @@ function Card({ name, profile_picture, rating, review_text }) {
   };
 
   return (
-    <div className="mx-auto p-6 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto bg-slate-200 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+    <div className=" flex flex-col pl-4 pt-5 items-start justify-start h-[300px] w-[400px]  bg-slate-200  shadow-md hover:shadow-xl rounded-lg transition-shadow duration-300">
       {/* Profile Section */}
-      <div className="flex items-center mb-4">
+      <div className="flex items-center justify-start mb-4">
         <div
           style={coverStyle}
-          className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-cover bg-center mr-3"
+          className="w-20 h-20 rounded-full bg-cover bg-center mr-3"
           aria-label={`${name}'s profile`}
         ></div>
         <div>
-          <h3 className="text-lg sm:text-xl font-semibold text-gray-800">{name}</h3>
+          <h3 className="text-lg sm:text-2xl font-semibold text-gray-800">{name}</h3>
         </div>
       </div>
 
@@ -38,7 +38,7 @@ function Card({ name, profile_picture, rating, review_text }) {
       </div>
 
       {/* Review Text */}
-      <p className="text-gray-700 text-sm sm:text-base truncate">
+      <p className="text-gray-700 ltext-base sm:text-xl ">
         {review_text}
       </p>
     </div>

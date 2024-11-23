@@ -8,11 +8,10 @@ import ReviewCard1 from "../components/ReviewCard1";
 
 function Home() {
   return (
-    <div>
+    <div className=" py-2">
       <Introduction></Introduction>
       <Service></Service>
       <ReviewCard1></ReviewCard1>
-
       <Results />
     </div>
   );
