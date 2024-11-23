@@ -1,173 +1,273 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useInView } from "react-intersection-observer";
+import React, { useState, useEffect } from "react";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
+import backImg from "../assets/backgroundReview.jpg";
 
-import data from '../assets/data.json';
-import Card from "./Card";
+const ReviewPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [newReview, setNewReview] = useState({
+    name: "",
+    rating: 0,
+    comment: ""
+  });
+  const [formData, setFormData] = useState({
+    name: "",
+    rating: 5,
+    review: ""
+  });
+  const [errors, setErrors] = useState({});
+  const [showForm, setShowForm] = useState(false);
 
-const Try = () => {
-  const star_5 = useRef(null);
-  const star_4 = useRef(null);
-  const star_3 = useRef(null);
-  const star_2 = useRef(null);
-  const star_1 = useRef(null);
-
-  const handleScroll = () => {
-    const bars = [
-      { ref: star_5, width: '72%' },
-      { ref: star_4, width: '18%' },
-      { ref: star_3, width: '6%' },
-      { ref: star_2, width: '2%' },
-      { ref: star_1, width: '2%' }
-    ];
-    const windowHeight = window.innerHeight;
-
-    bars.forEach((bar) => {
-      const barOffset = bar.ref.current.offsetTop;
-      const barHeight = bar.ref.current.offsetHeight;
-
-      if (window.scrollY + windowHeight >= barOffset + barHeight && window.scrollY <= barOffset + windowHeight) {
-        bar.ref.current.style.width = bar.width;
-      } else {
-        bar.ref.current.style.width = '0%';
-      }
-    });
-  };
+  const labels = [
+    { id: 1, label: "SEO", percentage: "92%", color: "red" },
+    { id: 2, label: "Social Media Ads", percentage: "86%", color: "blue" },
+    { id: 3, label: "Graphic Design", percentage: "82%", color: "green" },
+    { id: 4, label: "Social Media Handling", percentage: "88%", color: "yellow" },
+    { id: 5, label: "Website Devlopment", percentage: "90%", color: "purple" },
+    { id: 6, label: "Performance Marketing", percentage: "84%", color: "pink" },
+    { id: 7, label: "Social Media Content Writing", percentage: "87%", color: "orange" }
+  ];
+  
+  const reviews = [
+    {
+      id: 1,
+      name: "Naruto",
+      rating: 4.8,
+      comment: "Exceptional service and quality. Highly recommended!"
+    },
+    {
+      id: 2,
+      name: "Luffy",
+      rating: 4.5,
+      comment: "Great experience overall. Will definitely come back."
+    },
+    {
+      id: 3,
+      name: "Goku",
+      rating: 4.7,
+      comment: "Outstanding product quality and customer service."
+    },
+    {
+      id: 4,
+      name: "Tanjiro",
+      rating: 4.7,
+      comment: "Outstanding product quality and customer service."
+    },
+    {
+      id: 5,
+      name: "Zoro",
+      rating: 4.7,
+      comment: "Outstanding product quality and customer service."
+    }
+  ];
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
 
-  const scrollRef = useRef(null);
-  const [item, setItem] = useState([]);
+    const currentRef = document.getElementById("star-meter");
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
 
-  useEffect(() => {
-    setItem(data);
-    const scrollContainer = scrollRef.current;
-
-    const scroll = () => {
-      if (!scrollContainer) return;
-
-      const isSmallScreen = window.innerWidth < 1280; // Tailwind's lg breakpoint
-      if (isSmallScreen) {
-        if (
-          scrollContainer.scrollLeft + scrollContainer.clientWidth >=
-          scrollContainer.scrollWidth
-        ) {
-          scrollContainer.scrollLeft = 0; // Reset horizontal scroll position
-        } else {
-          scrollContainer.scrollLeft += 1; // Increment horizontal scroll
-        }
-      } else {
-        if (
-          scrollContainer.scrollTop + scrollContainer.clientHeight >=
-          scrollContainer.scrollHeight
-        ) {
-          scrollContainer.scrollTop = 0; // Reset vertical scroll position
-        } else {
-          scrollContainer.scrollTop += 1; // Increment vertical scroll
-        }
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
-
-    const scrollInterval = setInterval(scroll, 20); // Adjust speed with the interval
-
-    return () => clearInterval(scrollInterval); // Cleanup on unmount
   }, []);
 
+  const renderStars = (rating) => {
+    const stars = [];
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(
+        <FaStar key={`full-${i}`} className="text-yellow-400 inline-block" />
+      );
+    }
+
+    if (hasHalfStar) {
+      stars.push(
+        <FaStarHalfAlt
+          key="half"
+          className="text-yellow-400 inline-block"
+        />
+      );
+    }
+
+    return stars;
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.review.trim()) newErrors.review = "Review is required";
+    return newErrors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length === 0) {
+      console.log("Form submitted:", formData);
+      setShowForm(false);
+      setFormData({ name: "", rating: 5, review: "" });
+    } else {
+      setErrors(newErrors);
+    }
+  };
+
   return (
-    // Main div
-    <div className="h-fit bg-black flex flex-col py-4  xl:flex-row items-center xl:justify-evenly space-y-2 md:justify-start md:pl-10">
-      {/* Middle div (Review and Rating section) */}
-      <div className="delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0 shadow-[-5px_-6px_60px_-1px_rgba(59,_130,_246,_0.5)] bg-white p-5 py-2 rounded-3xl shadow-md w-11/12 md:w-4/5 lg:w-3/5 xl:w-2/5 h-auto  flex flex-col justify-center" data-taos-offset="400">
-        <h2 className="text-2xl md:text-4xl text-center font-bold mb-4">Reviews and Ratings</h2>
-        <div className="flex  flex-col items-center mb-4">
-          <span className="text-4xl md:text-6xl font-bold">4.6</span>
-          <div className="ml-2 flex flex-col items-center">
-            <div className="flex text-yellow-500">
-              {[...Array(4)].map((_, i) => (
-                <svg key={i} className="animate-pulse w-6 h-6 md:w-10 md:h-10 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 .587l3.668 7.568L24 9.423l-6 5.847 1.417 8.253L12 18.897l-7.417 4.626L6 15.27 0 9.423l8.332-1.268z" />
-                </svg>
-              ))}
-              <svg className="animate-pulse w-6 h-6 md:w-10 md:h-10 lg:h-15 lg:w-15 fill-current" viewBox="0 0 24 24">
-                <path d="M12 .587l3.668 7.568L24 9.423l-6 5.847 1.417 8.253L12 18.897l-7.417 4.626L6 15.27 0 9.423l8.332-1.268z" />
-                <path d="M12 2.587l2.668 5.568L20 9.423l-4 3.847 1.417 6.253L12 15.897l-5.417 3.626L8 13.27 4 9.423l5.332-.268z" fill="#d1d5db" />
-              </svg>
+    <div style={{ backgroundImage: 'url(' + backImg + ')', backgroundSize: 'cover' }}>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-600 dark:text-white p-6">
+          OUR CUSTOMER STORIES
+      </h2>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-2">
+        {/* Main Review Card */}
+        <div className="bg-black text-white dark:bg-white dark:text-black rounded-2xl shadow-xl p-6 mx-4 mb-6">
+          <h1 className="text-3xl font-bold mb-6">Customer Reviews</h1>
+          <div className="flex items-center mb-8">
+            <span className="text-4xl font-bold mr-4">4.6</span>
+            <div className="flex items-center">
+              {renderStars(4.6)}
+              <span className="ml-2 text-gray-600">(234 reviews)</span>
             </div>
-            <h2 className="ml-2 text-gray-600 text-sm lg:text-4xl md:text-lg">Based on 200+ ratings</h2>
           </div>
+
+          {/* Bar fields*/ }
+          <div> {labels.map((item) => ( <div key={item.id}> <span>{item.label}</span> <div id="star-meter" className="relative h-4 bg-gray-200 rounded-full mb-8"> <motion.div initial={{ width: 0 }} animate={{ width: isVisible ? item.percentage : 0 }} transition={{ duration: 1.5 }} style={{background:item.color}} className="absolute h-full rounded-full" /> </div> </div> ))} </div>
+
+          <button
+            onClick={() => setShowForm(true)}
+            className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            aria-label="Add your review"
+          >
+            Add Your Review
+          </button>
         </div>
-        <div className="mb-4">
-          <div className="flex justify-between text-gray-600 text-sm md:text-lg">
-            <span className='lg:h-12 lg:w-15 lg:text-4xl'>5 Stars</span>
-            <span className='lg:text-4xl'>72%</span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2.5 md:h-3">
-            <div className="bg-[#57e32c] h-2.5 md:h-3 rounded-full lg:text-4xl transition-all duration-1000" style={{ width: '0%' }} ref={star_5}></div>
-          </div>
+
+        {/* Top Reviews Section */}
+        <div className="space-y-6 mb-4">
+          <h2 className="dark:text-white text-2xl font-bold mb-6 ml-3">Top Reviews</h2>
+          {reviews.map((review) => (
+            <div
+              key={review.id}
+              className="bg-white rounded-xl shadow-lg p-4 transition-transform hover:scale-105 mx-4"
+            >
+              <div className="flex items-center">
+                <div>
+                  <h3 className="font-semibold">{review.name}</h3>
+                  <div className="flex items-center">
+                    {renderStars(review.rating)}
+                    <span className="ml-2 text-gray-600">({review.rating})</span>
+                  </div>
+                </div>
+              </div>
+              <p className="text-gray-600">{review.comment}</p>
+            </div>
+          ))}
         </div>
-        <div className="mb-4">
-          <div className="flex justify-between text-gray-600 text-sm md:text-lg">
-            <span className='lg:h-12 lg:w-15 lg:text-4xl' >4 Stars</span>
-            <span className='lg:text-4xl'>18%</span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2.5 md:h-3">
-            <div className="bg-[#b7dd29] h-2.5 md:h-3 rounded-full transition-all duration-1000" style={{ width: '0%' }} ref={star_4}></div>
-          </div>
-        </div>
-        <div className="mb-4">
-          <div className="flex justify-between text-gray-600 text-sm md:text-lg">
-            <span className='lg:h-12 lg:w-15 lg:text-4xl'>3 Stars</span>
-            <span className='lg:text-4xl'>6%</span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2.5 md:h-3">
-            <div className="bg-[#ffe234] h-2.5 md:h-3 rounded-full transition-all duration-1000" style={{ width: '0%' }} ref={star_3}></div>
-          </div>
-        </div>
-        <div className="mb-4">
-          <div className="flex justify-between text-gray-600 text-sm md:text-lg">
-            <span className='lg:h-12 lg:w-15 lg:text-4xl'> 2 Stars</span>
-            <span className='lg:text-4xl'>2%</span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2.5 md:h-3">
-            <div className="bg-[#ffa534] h-2.5 md:h-3 rounded-full transition-all duration-1000" style={{ width: '0%' }} ref={star_2}></div>
-          </div>
-        </div>
-        <div className="mb-4">
-          <div className="flex justify-between text-gray-600 text-sm md:text-lg">
-            <span className='lg:h-12 lg:w-15 lg:text-4xl'>1 Stars</span>
-            <span className='lg:text-4xl'>2%</span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2.5 md:h-3">
-            <div className="bg-[#ff4545] h-2.5 md:h-3 rounded-full transition-all duration-1000" style={{ width: '0%' }} ref={star_1}></div>
-          </div>
-        </div>
-        <button className="text-blue-500 mt-4 lg:text-4xl text-sm md:text-lg lg:mb-6">Show summary</button>
       </div>
 
-      {/* Comment section */}
-      <div
-        ref={scrollRef}
-        className="xl:h-screen h-fit  xl:overflow-y-scroll w-full xl:w-1/3 md:w-full overflow-x-scroll scrollbar-hide bg-transparent flex xl:flex-col flex-row"
-        style={{ scrollBehavior: "smooth" }}
-      >
-        {item.map((item, index) => (
-          <div
-            className="p-4 bg-transparent w-full lg:w-4/5 xl:w-3/4 shadow rounded-lg text-lg text-gray-800 m-2"
-            key={index}
-          >
-            <Card 
-              name={item.name}
-              profile_picture={item.profile_pic}
-              rating={item.rating}
-              review_text={item.review}
-            />
-          </div>
-        ))}
-      </div>
+      {/* Review Model */}
+      {showForm && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+              <div className="bg-white rounded-xl p-6 max-w-md w-full">
+                <h3 className="text-2xl font-bold mb-4">Write Your Review</h3>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-gray-700 mb-2" htmlFor="name">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className={`w-full p-2 border rounded-lg ${errors.name ? "border-red-500" : "border-gray-300"}`}
+                      aria-invalid={errors.name ? "true" : "false"}
+                    />
+                    {errors.name && (
+                      <p className="text-red-500 text-sm mt-1" role="alert">
+                        {errors.name}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-700 mb-2">Rating</label>
+                    <div className="flex space-x-1">
+                      {[...Array(5)].map((_, index) => (
+                        <button
+                          key={index}
+                          type="button"
+                          onClick={() => setFormData({ ...formData, rating: index + 1 })}
+                          className="focus:outline-none"
+                        >
+                          <FaStar
+                            className={`${index < formData.rating ? "text-yellow-400" : "text-gray-300"} text-2xl`}
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-700 mb-2" htmlFor="review">
+                      Review
+                    </label>
+                    <textarea
+                      id="review"
+                      name="review"
+                      value={formData.review}
+                      onChange={handleInputChange}
+                      className={`w-full p-2 border rounded-lg ${errors.review ? "border-red-500" : "border-gray-300"}`}
+                      rows="4"
+                      aria-invalid={errors.review ? "true" : "false"}
+                    />
+                    {errors.review && (
+                      <p className="text-red-500 text-sm mt-1" role="alert">
+                        {errors.review}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="flex space-x-4">
+                    <button
+                      type="submit"
+                      className="flex-1 bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors duration-300"
+                    >
+                      Submit
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowForm(false)}
+                      className="flex-1 bg-gray-200 text-gray-800 py-2 rounded-lg hover:bg-gray-300 transition-colors duration-300"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
+
+      
     </div>
   );
 };
 
-export default Try;
+export default ReviewPage;
