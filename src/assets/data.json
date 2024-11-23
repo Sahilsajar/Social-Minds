@@ -1,143 +1,72 @@
 [
-    {
-      "id": 1,
-      "name": "John Doe",
-      "profile_picture": "https://imgs.search.brave.com/8xuYTPc4lp4KF75aP7tAudpymOv2iFLVFAyr7z5RRfM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bXVzaWNyYWlzZXIu/bmV0L3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIwLzA1L0tpbW15/LUdyYW5nZXItTW9z/dC1iZWF1dGlmdWwt/cG9ybi1zdGFycy1v/Zi1BbWVyaWNhLmpw/Zw",
-      "rating": 5,
-      "review_text": "Amazing product! Highly recommend it to everyone."
-    },
-    {
-      "id": 2,
-      "name": "Jane Smith",
-      "profile_picture": "https://imgs.search.brave.com/vELwnGFq4HsNZfGBu1KgeazwsBnPqV2rAIU6lHPX9EE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9ha20t/aW1nLWEtaW4udG9z/c2h1Yi5jb20vaW5k/aWF0b2RheS9pbWFn/ZXMvcGhvdG9nYWxs/ZXJ5LzIwMTIwMi9z/dW5ueS1sXzAyMjEx/MjA0MDM1MS5qcGc_/VmVyc2lvbklkPVE1/MElqRThBZFFtVmJI/UHduYWE1OHB4WWxv/WnpSRHVOJnNpemU9/Njg2Oio",
-      "rating": 4,
-      "review_text": "Great quality but the delivery was a bit slow."
-    },
-    {
-      "id": 3,
-      "name": "Chris Johnson",
-      "profile_picture": "https://imgs.search.brave.com/Vhz8Mo3oTeq_WoNnxZ_nt8laVeOYU1VaMzA-vLqszsQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly94eHhi/aW9zLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMS8wMS9t/b2xseS1zdGV3YXJ0/LWUxNjExNjg4NDI3/MjAzLmpwZw",
-      "rating": 5,
-      "review_text": "Exceeded my expectations in every way!"
-    },
-    {
-      "id": 4,
-      "name": "Patricia Brown",
-      "profile_picture": "https://example.com/images/patriciabrown.jpg",
-      "rating": 3,
-      "review_text": "It's okay, but I've seen better alternatives."
-    },
-    {
-      "id": 5,
-      "name": "Michael Davis",
-      "profile_picture": "https://example.com/images/michaeldavis.jpg",
-      "rating": 4,
-      "review_text": "Good product, reasonable price."
-    },
-    {
-      "id": 6,
-      "name": "Sarah Wilson",
-      "profile_picture": "https://example.com/images/sarahwilson.jpg",
-      "rating": 5,
-      "review_text": "Fantastic! Works perfectly."
-    },
-    {
-      "id": 7,
-      "name": "David Martinez",
-      "profile_picture": "https://example.com/images/davidmartinez.jpg",
-      "rating": 2,
-      "review_text": "Not worth the money. Disappointed."
-    },
-    {
-      "id": 8,
-      "name": "Emily Garcia",
-      "profile_picture": "https://example.com/images/emilygarcia.jpg",
-      "rating": 5,
-      "review_text": "This has made my life so much easier!"
-    },
-    {
-      "id": 9,
-      "name": "James Rodriguez",
-      "profile_picture": "https://example.com/images/jamesrodriguez.jpg",
-      "rating": 4,
-      "review_text": "Very useful, but could be improved."
-    },
-    {
-      "id": 10,
-      "name": "Linda Anderson",
-      "profile_picture": "https://example.com/images/lindaanderson.jpg",
-      "rating": 5,
-      "review_text": "Absolutely love this product! A must-buy."
-    },
-    {
-      "id": 11,
-      "name": "Robert Thomas",
-      "profile_picture": "https://example.com/images/robertthomas.jpg",
-      "rating": 1,
-      "review_text": "Terrible experience. Would not recommend."
-    },
-    {
-      "id": 12,
-      "name": "Karen Lewis",
-      "profile_picture": "https://example.com/images/karenlewis.jpg",
-      "rating": 5,
-      "review_text": "Perfect in every aspect! Will buy again."
-    },
-    {
-      "id": 13,
-      "name": "Matthew Lee",
-      "profile_picture": "https://example.com/images/matthewlee.jpg",
-      "rating": 3,
-      "review_text": "Average experience. It's okay for the price."
-    },
-    {
-      "id": 14,
-      "name": "Sophia Harris",
-      "profile_picture": "https://example.com/images/sophiaharris.jpg",
-      "rating": 4,
-      "review_text": "Good product with minor issues."
-    },
-    {
-      "id": 15,
-      "name": "Daniel Clark",
-      "profile_picture": "https://example.com/images/danielclark.jpg",
-      "rating": 5,
-      "review_text": "Excellent value for money!"
-    },
-    {
-      "id": 16,
-      "name": "Olivia Robinson",
-      "profile_picture": "https://example.com/images/oliviarobinson.jpg",
-      "rating": 4,
-      "review_text": "Really good! Would recommend to friends."
-    },
-    {
-      "id": 17,
-      "name": "William Young",
-      "profile_picture": "https://example.com/images/williamyoung.jpg",
-      "rating": 5,
-      "review_text": "Top-notch quality and fast delivery."
-    },
-    {
-      "id": 18,
-      "name": "Elizabeth Allen",
-      "profile_picture": "https://example.com/images/elizabethallen.jpg",
-      "rating": 3,
-      "review_text": "Decent, but could use some improvements."
-    },
-    {
-      "id": 19,
-      "name": "Andrew Scott",
-      "profile_picture": "https://example.com/images/andrewscott.jpg",
-      "rating": 2,
-      "review_text": "Not as described. Disappointed with my purchase."
-    },
-    {
-      "id": 20,
-      "name": "Ava King",
-      "profile_picture": "https://example.com/images/avaking.jpg",
-      "rating": 5,
-      "review_text": "Fantastic product! Highly satisfied with my purchase."
-    }
-  ]
-  
+  {
+    "id": 1,
+    "name": "John Doe",
+    "profile_pic": "https://example.com/profile_pics/john_doe.jpg",
+    "rating": 5,
+    "review": "Fantastic service! Boosted our online presence within weeks."
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "profile_pic": "https://example.com/profile_pics/jane_smith.jpg",
+    "rating": 4,
+    "review": "Great results overall, but some delays in campaign setup."
+  },
+  {
+    "id": 3,
+    "name": "Michael Brown",
+    "profile_pic": "https://example.com/profile_pics/michael_brown.jpg",
+    "rating": 5,
+    "review": "Highly professional and effective digital marketing strategies."
+  },
+  {
+    "id": 4,
+    "name": "Emily Davis",
+    "profile_pic": "https://example.com/profile_pics/emily_davis.jpg",
+    "rating": 4,
+    "review": "Improved our SEO rankings significantly. Very pleased!"
+  },
+  {
+    "id": 5,
+    "name": "Chris Wilson",
+    "profile_pic": "https://example.com/profile_pics/chris_wilson.jpg",
+    "rating": 5,
+    "review": "Top-notch service with excellent customer support."
+  },
+  {
+    "id": 6,
+    "name": "Jessica Martinez",
+    "profile_pic": "https://example.com/profile_pics/jessica_martinez.jpg",
+    "rating": 3,
+    "review": "Results were okay, but communication could be better."
+  },
+  {
+    "id": 7,
+    "name": "David Lee",
+    "profile_pic": "https://example.com/profile_pics/david_lee.jpg",
+    "rating": 5,
+    "review": "Exceptional ROI from their PPC campaigns. Highly recommend!"
+  },
+  {
+    "id": 8,
+    "name": "Sophia Garcia",
+    "profile_pic": "https://example.com/profile_pics/sophia_garcia.jpg",
+    "rating": 4,
+    "review": "Social media marketing improved, but some analytics lacked depth."
+  },
+  {
+    "id": 9,
+    "name": "Daniel Taylor",
+    "profile_pic": "https://example.com/profile_pics/daniel_taylor.jpg",
+    "rating": 5,
+    "review": "Great value for the price. Helped grow our business immensely."
+  },
+  {
+    "id": 10,
+    "name": "Olivia Hernandez",
+    "profile_pic": "https://example.com/profile_pics/olivia_hernandez.jpg",
+    "rating": 4,
+    "review": "Solid service with creative ad designs. Would use again."
+  }
+]

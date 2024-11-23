@@ -60,8 +60,8 @@ function TypeAni({ isFullWidth }) {
           {staticText} <span className="TypeAniDiv">{typedText}</span>
           <span className="cursor">|</span>
         </div>
-        <button class="button-64" role="button">
-          <span class="text">Connect Today</span>
+        <button className="button-64" role="button">
+          <span className="text">Connect Today</span>
         </button>
       </div>
     </div>

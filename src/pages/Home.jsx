@@ -11,12 +11,14 @@ import ReviewCard1 from "../components/ReviewCard1"
 
 function Home() {
   return (
-    <div>
+    <div className=" py-2">
       <Introduction></Introduction>
 
       
 
       <ReviewCard1></ReviewCard1>
+      
+      
       
       <Results/>
 
