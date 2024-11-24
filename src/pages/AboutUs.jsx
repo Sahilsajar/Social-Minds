@@ -14,7 +14,7 @@ const AboutUs = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Section 1 */}
-          <div className="bg-white dark:bg-gray-600 shadow-lg rounded-lg p-8 text-center">
+          <div className="bg-white dark:bg-gradient-to-br from-teal-900 to-slate-700 shadow-lg rounded-lg p-8 text-center">
             <div className="flex justify-center mb-4">
               <span className="bg-yellow-400 p-4 rounded-full text-white text-3xl">
                 <i className="fas fa-bullhorn"></i>
@@ -26,7 +26,7 @@ const AboutUs = () => {
             </p>
           </div>
           {/* Section 2 */}
-          <div className="bg-white shadow-lg dark:bg-gray-600 rounded-lg p-8 text-center">
+          <div className="bg-white shadow-lg dark:bg-gradient-to-br from-teal-900 to-slate-700 rounded-lg p-8 text-center">
             <div className="flex justify-center mb-4">
               <span className="bg-green-500 p-4 rounded-full text-white text-3xl">
                 <i className="fas fa-chart-line"></i>
@@ -38,7 +38,7 @@ const AboutUs = () => {
             </p>
           </div>
           {/* Section 3 */}
-          <div className="bg-white dark:bg-gray-600 shadow-lg rounded-lg p-8 text-center">
+          <div className="bg-white dark:bg-gradient-to-br from-teal-900 to-slate-700 shadow-lg rounded-lg p-8 text-center">
             <div className="flex justify-center mb-4">
               <span className="bg-blue-500 p-4 rounded-full text-white text-3xl">
                 <i className="fas fa-share-alt"></i>
