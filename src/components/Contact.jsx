@@ -1,66 +1,122 @@
-
-
-import emailjs from 'emailjs-com';
+import { useState } from "react";
+import backImg from "../assets/Background/2.jpg";
+import emailjs from "emailjs-com";
+import { useNavigate } from "react-router-dom";
+import ThankYou from "../pages/ThankYou";
 
 function Contact() {
-    function sendEmail(e){
-        e.preventDefault();
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const navigate=useNavigate();
 
-        emailjs.sendForm('service_8oop2kj','template_eim3a8i',e.target,'vuTY47KiOsexBDWrl').then(res=>console.log(res)).catch(err=>console.log(err));
+  const sendEmail = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Send the email using EmailJS
+      await emailjs.sendForm(
+        'service_8oop2kj',  // Replace with your EmailJS service ID
+        'template_eim3a8i', // Replace with your EmailJS template ID
+        e.target,            // The form being submitted
+        'vuTY47KiOsexBDWrl' // Replace with your EmailJS user ID
+      );
+
+      // If email is sent successfully, show success message and navigate
+      setIsSuccess(true);
+      setIsError(false);
+
+      // Redirect to homepage after a small delay
+      setTimeout(() => {
+        
+        navigate('/ThankYou');  // This will redirect to the homepage
+      },);  // Wait for 2 seconds before redirecting (optional)
+    } catch (err) {
+      console.error(err);
+      setIsSuccess(false);
+      setIsError(true);
+      navigate('/Contact')
     }
-  return (
-    <styledDiv  className="flex flex-col md:flex-row bg-teal-400 mt-[56px] min-h-[calc(100vh-56px)] p-8">
-    {/* left*/}
-    <div className='md:w-1/2 md:items-center text-left  flex flex-col mt-4  mb-6 md:mb-0'>
-      <h1 className='text-white  lg:text-12xl font-bold text-6xl'>YOUR</h1>
-      <h1 className='text-white  lg:text-12xl font-bold text-6xl '>SOCIAL </h1>
-      <h1 className='text-white  lg:text-12xl font-bold text-6xl'>MEDIA </h1>
-      <h1 className='text-white  lg:text-12xl font-bold text-6xl '>DESERVES </h1>
-    
-      <h1 className='text-white  lg:text-12xl font-bold text-6xl '>A BOOST </h1>
-      
-      <p className='text-black text-2xl md:text-4xl lg:text-4xl'>our team is ready </p>
-    </div>
-    {/*right */}
-    <div className='md:w-1/2  p-8 rounded-lg shadow-lg'>
-    {/*form*/}
-    <form className='space-y-2 md:space-y-4 lg:space-y-4' onSubmit={sendEmail}>
-    {/*div for name */}
-      <div className='flex space-y-4 space-x-0 md:space-y-0 md:space-x-2  flex-col md:flex-row'>
-      <input type="text" name='firstName' placeholder="First Name" className="md:w-1/2 p-2 border w-full border-gray-300 rounded" />
-        <input type="text" name='lastName' placeholder="Last Name" className="md:w-1/2 p-2 border w-full border-gray-300 rounded" />
-      </div>
-      <input name='email' type='email' placeholder='Email Address' className='w-full border p-2 rounded border-gray-300' />
-      <input name='company' type='text' placeholder='Company Name' className='w-full border p-2 rounded border-gray-300' />
-      <input name='phone' type='tel' placeholder='Phone Number' className='w-full border p-2 rounded border-gray-300' />
-      <input name='website' type='url' placeholder='Company website' className='w-full border p-2 rounded border-gray-300' />
-      <select name='budget' className="w-full p-2 border border-gray-300 rounded">
-            <option>Monthly budget...</option>
-            <option>Less than $1,000</option>
-            <option>$1,000 - $5,000</option>
-            <option>$5,000 - $10,000</option>
-            <option>More than $10,000</option>
-          </select>
-          
-          <select name='employee' className="w-full p-2 border border-gray-300 rounded">
-            <option className='text-grey'>Number of employees...</option>
-            <option >1-10</option>
-            <option>11-50</option>
-            <option>51-200</option>
-            <option>201-500</option>
-            <option>501+</option>
-          </select>
-          <textarea name='message' className='w-full p-2 border border-gray-300 rounded' placeholder='how can we help?' rows={4}>
-            
-          </textarea>
-          <button type='submit' className='p-2 text-white bg-black'>SCHEDULE CONSULTATION</button>
-    </form>
-    </div>
-    
-    
+   
+  };
 
-    </styledDiv>
-  )
+  return (
+    <div
+      style={{ backgroundImage: "url(" + backImg + ")", backgroundSize: "cover" }}
+      className="flex flex-col md:flex-row mt-[56px] min-h-[calc(100vh-56px)] p-8"
+    >
+      {/* Left Section */}
+      <div className="md:w-1/2 md:items-center text-center flex flex-col mt-4 mb-6 md:mb-0">
+        <h1 className="text-white lg:text-12xl font-bold text-6xl">YOUR</h1>
+        <h1 className="text-white lg:text-12xl font-bold text-6xl">SOCIAL</h1>
+        <h1 className="text-white lg:text-12xl font-bold text-6xl">MEDIA</h1>
+        <h1 className="text-white lg:text-12xl font-bold text-6xl">DESERVES</h1>
+        <h1 className="text-white lg:text-12xl font-bold text-6xl">A BOOST</h1>
+        <p className="text-2xl text-white md:text-4xl lg:text-4xl">Our team is ready</p>
+      </div>
+
+      {/* Right Section - Form */}
+      <div className="md:w-1/2 justify-center p-8 rounded-lg shadow-lg">
+        <form
+          className="space-y-2 md:space-y-4 justify-center items-center lg:space-y-4"
+          onSubmit={sendEmail}
+        >
+          <input
+            type="text"
+            required
+            name="Name"
+            placeholder="First Name"
+            className="md:w-full outline-none p-2 border w-full border-gray-300 rounded"
+          />
+          <input
+            name="email"
+            required
+            type="email"
+            placeholder="Email Address"
+            className="w-full border outline-none p-2 rounded border-gray-300"
+          />
+          <input
+            name="company"
+            required
+            type="text"
+            placeholder="Company Name"
+            className="w-full border outline-none p-2 rounded border-gray-300"
+          />
+          <input
+            name="phone"
+            required
+            type="tel"
+            placeholder="Phone Number"
+            className="w-full outline-none border p-2 rounded border-gray-300"
+          />
+          <textarea
+            name="message"
+            required
+            className="w-full outline-none p-2 border border-gray-300 rounded"
+            placeholder="How can we help?"
+            rows={4}
+          />
+          <button
+            type="submit"
+            className="bg-blue-600 px-4 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            SCHEDULE CONSULTATION
+          </button>
+        </form>
+
+        {/* Success/Error Message */}
+        {isSuccess && (
+        <div className="mt-4 p-4 bg-green-100 text-green-800 border border-green-200 rounded-md">
+          Email sent successfully!
+        </div>
+      )}
+      {isError && (
+        <div className="mt-4 p-4 bg-red-100 text-red-800 border border-red-200 rounded-md">
+          Something went wrong. Please try again.
+        </div>
+      )}
+      </div>
+    </div>
+  );
 }
 
-export default Contact
+export default Contact;
