@@ -2,8 +2,7 @@
 
 #intro-container{
     padding-top: 60px;
-    height: 100vh;
-    background-color: #212022;
+    height: 100vh; 
 }
 
 
@@ -150,7 +149,6 @@ Basic style
     /* width: 50%; */
     height: calc(100vh - 60px);
     overflow: hidden;
-    background-color: #212022;
     transition: width 2 ease;
 }
 body{
@@ -833,7 +831,7 @@ orange circle
 .orange01{
     width: 27vw;
     height: 27vw;
-    background: #340970;
+    background: #526D82;
     z-index: 1;
     top: 50%;
     left: 50%;
@@ -869,11 +867,11 @@ orange circle
     }
     50.01% {
         transform: rotate(-360deg);
-        background: #f47141;
+        background: #27374D;
     }
     100% {
         transform: rotate(-360deg);
-        background: #f47141;
+        background: #27374D;
     }
 }
 

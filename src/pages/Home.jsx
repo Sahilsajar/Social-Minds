@@ -10,12 +10,10 @@ function Home() {
   return (
     <div className=" py-2">
       <Introduction></Introduction>
+      <Try></Try>
       <Service></Service>
       <Results />
       <ReviewCard1 />
-      
-      
-      
     </div>
   );
 }

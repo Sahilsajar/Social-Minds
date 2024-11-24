@@ -5,7 +5,11 @@ function IntroAniMain({ isFullWidth }) {
   console.log(isFullWidth);
   return (
     <div
-      className={isFullWidth ? "introAniDiv w-full" : "introAniDiv basis-1/2"}
+      className={
+        isFullWidth
+          ? "introAniDiv w-full ease-in duration-1000"
+          : "introAniDiv basis-1/2 ease-in duration-1000"
+      }
     >
       <IntroAni1></IntroAni1>
       <IntroAni2></IntroAni2>

@@ -3,44 +3,44 @@ import "../resource/service.css";
 
 const postsData = [
   {
-    title: "SEO",
-    msg: "New McLaren wind tunnel 'critical' to future performance, says Tech Director Key",
-    tag: "News",
-    img: "/serviceSEO.jpeg",
-  },
-  {
     title: "Social Media Ads",
-    msg: "What To Watch For in the 2019 Hungarian Grand Prix",
+    msg: "Boost your brand with targeted and high-converting social media ads",
     tag: "Video",
     img: "/serviceSocialAds.jpeg",
   },
   {
+    title: "SEO",
+    msg: "Rank higher and drive organic traffic with expert SEO strategies",
+    tag: "News",
+    img: "/serviceSEO.jpeg",
+  },
+  {
     title: "Graphic Design",
-    msg: "Hamilton wants harder championship fight from Leclerc and Verstappen",
+    msg: "Captivate your audience with creative and visually stunning designs",
     tag: "News",
     img: "/serviceGraphicDesign.jpg",
   },
   {
     title: "Social Media Handling",
-    msg: "Hamilton wants harder championship fight from Leclerc and Verstappen",
+    msg: "Engage your followers with seamless and professional social media management",
     tag: "News",
     img: "/serviceSocialHandling.jpg",
   },
   {
-    title: "Website Devlopment",
-    msg: "Hamilton wants harder championship fight from Leclerc and Verstappen",
+    title: "Website Development",
+    msg: "Build a fast, user-friendly website tailored to your business needs",
     tag: "News",
-    img: "/serviceWebD.png",
+    img: "/serviceWebD.jpg",
   },
   {
     title: "Performance Marketing",
-    msg: "Hamilton wants harder championship fight from Leclerc and Verstappen",
+    msg: "Achieve measurable growth with data-driven performance marketing strategies",
     tag: "News",
     img: "/servicePerformanceMarketing.jpg",
   },
   {
     title: "Social Media Content Writing",
-    msg: "Hamilton wants harder championship fight from Leclerc and Verstappen",
+    msg: "Deliver impactful content that resonates and converts.",
     tag: "News",
     img: "/serviceContentWriting.jpeg",
   },
@@ -103,8 +103,8 @@ function Service() {
                 {/* <div className="main-post__tag-wrapper">
                   <span className="main-post__tag">{post.tag}</span>
                 </div> */}
-                <h1 className="main-post__title mb-2">{post.title}</h1>
-                <p className="mb-2">{post.msg}</p>
+                <h1 className="main-post__title mb-4">{post.title}</h1>
+                <p className="mb-4">{post.msg}</p>
                 <a className="main-post__link" href="#">
                   {/* <span className="main-post__link-text">Find out more</span> */}
                   <button className="main-post__link-text button-64">

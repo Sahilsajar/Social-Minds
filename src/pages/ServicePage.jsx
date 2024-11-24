@@ -36,8 +36,8 @@ const ServicePage = () => {
           color="blue"
           imgSrc="/serviceSEO.jpeg"
           title="Search Engine Optimization (SEO)"
-          date="Mon, May 25th 2020"
-          previewText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero."
+          date="Social Minds"
+          previewText="Improve your online visibility and attract organic traffic with our expert SEO services. From keyword research to on-page and off-page optimization, we ensure your website ranks higher on search engines."
           duration="55"
         />
 
@@ -45,8 +45,8 @@ const ServicePage = () => {
           color="red"
           imgSrc="/serviceSocialAds.jpeg"
           title="Social Media Ads"
-          date="Mon, May 25th 2020"
-          previewText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero."
+          date="Social Minds"
+          previewText="Drive your brand’s growth with highly targeted social media ads that deliver maximum ROI. Our team crafts engaging campaigns designed to reach the right audience and achieve measurable results for your business."
           duration="55"
         />
 
@@ -54,8 +54,8 @@ const ServicePage = () => {
           color="green"
           imgSrc="/serviceGraphicDesign.jpg"
           title="Graphic Designing"
-          date="Mon, May 25th 2020"
-          previewText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero."
+          date="Social Minds"
+          previewText="Stand out with creative and visually striking designs that leave a lasting impression. Our graphic design team brings your ideas to life with custom visuals that align with your brand identity."
           duration="55"
         />
 
@@ -63,24 +63,24 @@ const ServicePage = () => {
           color="yellow"
           imgSrc="/serviceSocialHandling.jpg"
           title="Social Media Handling"
-          date="Mon, May 25th 2020"
-          previewText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero."
+          date="Social Minds"
+          previewText="Build a strong online presence with our professional social media management services. We create and schedule engaging posts, interact with your audience, and grow your follower base organically."
           duration="55"
         />
         <Postcard
           color="blue"
-          imgSrc="/serviceWebD.png"
+          imgSrc="/serviceWebD.jpg"
           title="Website Creation & Devlopment"
-          date="Mon, May 25th 2020"
-          previewText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero."
+          date="Social Minds"
+          previewText="Get a responsive, fast, and user-friendly website designed to enhance your online presence. We specialize in building websites that are visually appealing and optimized for performance."
           duration="55"
         />
         <Postcard
           color="red"
           imgSrc="/servicePerformanceMarketing.jpg"
           title="Performance Marketing"
-          date="Mon, May 25th 2020"
-          previewText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero."
+          date="Social Minds"
+          previewText="Maximize your returns with data-driven performance marketing strategies. We focus on tracking, analyzing, and optimizing campaigns to ensure measurable and consistent results for your business."
           duration="55"
         />
 
@@ -88,8 +88,8 @@ const ServicePage = () => {
           color="green"
           imgSrc="/serviceContentWriting.jpeg"
           title="Content Writing"
-          date="Mon, May 25th 2020"
-          previewText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero."
+          date="Social Minds"
+          previewText="Keep your audience engaged with captivating social media content that drives interaction. We create tailored, high-quality posts to align with your brand and audience preferences."
           duration="55"
         />
       </div>
