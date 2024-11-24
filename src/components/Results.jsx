@@ -1,10 +1,12 @@
 import React from "react";
 import AnimateText from "./AnimateText";
 import Graph from "./Graph";
+import backImg from "../assets/Background/1.jpg"
 
 const Results = () => {
   return (
-    <div className="border-b-2 h-[calc(100vh-56px)] bg-white text-black dark:bg-dark2 dark:text-white">
+    <div style={{ backgroundImage: 'url(' + backImg + ')', backgroundSize: 'cover' }}
+     className="bg-white text-black dark:bg-dark2 dark:text-white">
       <div className="h-[300px] flex flex-col justify-center items-center text-sm md:text-base">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-600 dark:text-white p-6">
           About Us

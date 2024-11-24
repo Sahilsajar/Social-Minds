@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
-import backImg from "../assets/backgroundReview.jpg";
+//import backImg from "../assets/backgroundReview.jpg";
+import backImg from "../assets/Background/2.jpg"
 
 const ReviewPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
