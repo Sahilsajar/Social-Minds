@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function TypeAni({ isFullWidth }) {
-  const staticText = "What Can I Help You";
-  const typingWords = ["With?", "Achieve?", "Solve?"]; // Words to cycle through
+  const staticText = "We deliver results tailored to your";
+  const typingWords = ["Goals!", "Growth!", "Success!"]; // Words to cycle through
 
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [typedText, setTypedText] = useState("");
@@ -48,11 +49,11 @@ function TypeAni({ isFullWidth }) {
     <div
       className={
         isFullWidth
-          ? "leftIntroDiv flex items-center w-0"
-          : "basis-1/2 leftIntroDiv flex items-center"
+          ? "leftIntroDiv flex items-center w-0 ease-in duration-1000"
+          : "basis-1/2 leftIntroDiv flex items-center ease-in duration-1000"
       }
     >
-      <div className="pl-5 leftIntroSubDiv">
+      <div className="pl-5 leftIntroSubDiv font-sans">
         <h3 className="typAniHeading">
           Social Minds have helped Business grow
         </h3>
@@ -60,9 +61,11 @@ function TypeAni({ isFullWidth }) {
           {staticText} <span className="TypeAniDiv">{typedText}</span>
           <span className="cursor">|</span>
         </div>
-        <button className="button-64" role="button">
-          <span className="text">Connect Today</span>
-        </button>
+        <Link to={"/Contact"}>
+          <button className="button-64" role="button">
+            <span className="text">Connect Today</span>
+          </button>
+        </Link>
       </div>
     </div>
   );

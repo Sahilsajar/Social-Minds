@@ -13,11 +13,13 @@ function Introduction() {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div id="intro-container" className="flex">
-      <TypeAni isFullWidth={isFullWidth}></TypeAni>
-      <IntroAniMain isFullWidth={isFullWidth}></IntroAniMain>
+    <div className="BG-slate-950">
+      <div id="intro-container" className="flex max-w-screen-xl w-full mx-auto">
+        <TypeAni isFullWidth={isFullWidth}></TypeAni>
+        <IntroAniMain isFullWidth={isFullWidth}></IntroAniMain>
 
-      {/* <Try></Try> */}
+        {/* <Try></Try> */}
+      </div>
     </div>
   );
 }
