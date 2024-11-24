@@ -54,19 +54,21 @@ const Graph = () => {
   return (
     <div
       ref={containerRef}
-      className="graph-container relative  hover:shadow-sm hover:shadow-green-300"
+      className="graph-container relative w-full h-auto rounded-lg max-w-md  lg:max-w-lg hover:shadow-sm hover:shadow-green-300"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
         transition: "transform 0.2s ease", // Smooth transition back to neutral
         perspective: "1000px", // Enable 3D perspective
       }}
+      
     >
 
       <svg
         viewBox="0 0 600 400"
         xmlns="http://www.w3.org/2000/svg"
-        className="h-44 md:h-72 lg:h-96 w-full rounded-lg"
+        // className="h-24 w-24 rounded-lg"
+        className="rounded-lg hover:shadow-sm"
       >
         {/* Background */}
         <rect width="600" height="400" fill="#1A202C" />
