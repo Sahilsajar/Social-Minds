@@ -378,15 +378,16 @@ c129 -180 131 -180 131 16 0 127 -2 150 -15 150 -18 0 -16 9 -19 -112 -1 -54
             <Link to="/" className="hover:text-blue-300 mt-10 text-2xl">
               Home
             </Link>
-            <Link to="/contact" className="hover:text-blue-300 text-2xl">
-              Contact
-            </Link>
-            
-            <Link to="/services" className="hover:text-blue-300 text-2xl">
+            <Link to="/service" className="hover:text-blue-300 text-2xl">
               Services
             </Link>
-            <Link to="/pricing" className="hover:text-blue-300 text-2xl">
-              Pricing
+            <Link to="/about" className="hover:text-blue-300 text-2xl">
+              About
+            </Link>
+            
+            
+            <Link to="/contact" className="hover:text-blue-300 text-2xl">
+              Contact Us
             </Link>
           </NavDiv>
         )}
