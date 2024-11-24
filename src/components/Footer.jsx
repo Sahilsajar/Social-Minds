@@ -397,7 +397,7 @@ c129 -180 131 -180 131 16 0 127 -2 150 -15 150 -18 0 -16 9 -19 -112 -1 -54
           </div>
         </div>
       </div>
-      <p className="text-sm text-center">
+      <p className="text-xs text-center mt-4">
         © 2024 <span className="font-semibold"></span>. All rights reserved.
         Powered by{" "}
         <a
