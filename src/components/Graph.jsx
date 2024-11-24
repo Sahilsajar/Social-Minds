@@ -47,14 +47,14 @@ const Graph = () => {
         { strokeDashoffset: 0, duration: 2 },
         "-=1.5" // Start this animation 1.5s before the first ends
       );
-    },10000)
+    },5000)
     return () => clearInterval(timer);
   }, []);
 
   return (
     <div
       ref={containerRef}
-      className="graph-container relative w-full h-auto rounded-lg max-w-md  lg:max-w-lg hover:shadow-sm hover:shadow-green-300"
+      className="graph-container relative w-full h-auto rounded-lg max-w-sm sm:max-w-md hover:shadow-sm hover:shadow-green-300"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
@@ -68,7 +68,7 @@ const Graph = () => {
         viewBox="0 0 600 400"
         xmlns="http://www.w3.org/2000/svg"
         // className="h-24 w-24 rounded-lg"
-        className="rounded-lg hover:shadow-sm"
+        className="rounded-lg w-full h-auto max-w-sm sm:max-w-md hover:shadow-sm"
       >
         {/* Background */}
         <rect width="600" height="400" fill="#1A202C" />
