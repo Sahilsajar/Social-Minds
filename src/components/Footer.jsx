@@ -317,7 +317,7 @@ c129 -180 131 -180 131 16 0 127 -2 150 -15 150 -18 0 -16 9 -19 -112 -1 -54
           </div>
         </div>
 
-        <div className="mx-auto grid grid-cols-1 gap-8">
+        <div className="md:mx-auto ml-8  grid grid-cols-1 gap-8">
           {/* Our Services */}
           <div>
             <h2 className="text-2xl font-semibold mb-4">Our Services</h2>
