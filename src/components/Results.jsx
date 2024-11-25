@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import AnimateText from "./AnimateText";
 import Graph from "./Graph";
 import backImg from "../assets/Background/1.jpg";
+import whitebg from "../../public/whitebg.jpg";
+import { ThemeContext } from "../themeContext/ThemeContext";
+
 
 const Results = () => {
+
+  const { theme } = useContext(ThemeContext);
   return (
     <div
       style={{
-        backgroundImage: "url(" + backImg + ")",
+        backgroundImage: `url(${theme==='dark'?backImg:whitebg})`,
         backgroundSize: "cover",
       }}
-      className=" h-screen text-white dark:text-white"
+      className=" h-screen text-black dark:text-white border-b-4 dark:border-none"
     >
       <div className="pt-8 mx-auto w-5/6">
         <div className="md:text-base">
@@ -28,19 +33,19 @@ const Results = () => {
           {/* Text Section */}
           <div className="h-fit flex flex-col text-center justify-center md:text-lg space-y-2 md:space-y-6 md:pt-4">
             <div className="flex flex-col">
-              <span className="underline text-slate-600 text-lg">
+              <span className="underline dark:text-blue1 text-blue-700 font-extrabold text-lg">
                 <AnimateText start={10} end={90} /> % increase
               </span>
               <span className="text-sm lg:text-lg">in online orders within four months</span>
             </div>
             <div className="flex flex-col">
-              <span className="underline text-slate-600 text-lg">
+              <span className="underline dark:text-blue1 text-blue-700 font-extrabold  text-lg">
                 <AnimateText start={10} end={120} /> % growth
               </span>
               <span className="text-sm lg:text-lg">in social media followers and engagement</span>
             </div>
             <div className="flex flex-col">
-              <span className="underline text-slate-600 text-lg">
+              <span className="underline dark:text-blue1 text-blue-700 font-extrabold text-lg">
                 <AnimateText start={10} end={70} /> % increase
               </span>
               <span className="text-sm lg:text-lg">in website conversion rates and user experience</span>

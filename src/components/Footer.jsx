@@ -12,6 +12,7 @@ const Footer = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   return (
     <footer className="bg-white text-black dark:bg-black dark:text-white py-8 ">
+    <hr className="relative -top-8 left-0 md:w-[98%] w-[90%] mx-auto dark:bg-gray-500 bg-black h-[3px] "/>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Brand Description */}
         <div className="ml-8 relative">

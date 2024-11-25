@@ -14,6 +14,7 @@ export default {
         dark: '#1E2422',
         dark2: '#181C14',
         light: '#ffffff',
+        blue1: '#4A90E2'
       },
       keyframes: {
         // Infinite scrolling animation for fading in/out and scaling

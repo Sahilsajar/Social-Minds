@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 //import backImg from "../assets/backgroundReview.jpg";
 import backImg from "../assets/Background/2.jpg";
 import revImg from "../assets/backgroundReview.jpg";
+import whitebg from "../../public/whitebg.jpg";
+import { ThemeContext } from "../themeContext/ThemeContext";
 
 const ReviewPage = () => {
+
+  const {theme} = useContext(ThemeContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [newReview, setNewReview] = useState({
@@ -46,33 +50,34 @@ const ReviewPage = () => {
       id: 1,
       name: "Sebastian Clark",
       rating: 4.8,
-      comment: "Exceptional service and quality. Highly recommended!",
+      comment: "Stunning visuals that exceeded our expectations every time!",
     },
     {
       id: 2,
       name: "Leonardo Costa",
-      rating: 4.5,
-      comment: "Great experience overall. Will definitely come back.",
+      rating: 4.7,
+      comment: "Boosted our engagement and followers significantly. Highly impressed!",
     },
     {
       id: 3,
       name: "Maximilian Weber",
-      rating: 4.7,
-      comment: "Outstanding product quality and customer service.",
+      rating: 4.9,
+      comment: "Innovative and user-friendly website delivered on time!",
     },
     {
       id: 4,
       name: "Ethan Williams",
       rating: 4.8,
-      comment: "Outstanding product quality and customer service.",
+      comment: "Achieved incredible ROI with their expert performance marketing strategies!",
     },
     {
       id: 5,
-      name: "Kai Nakamura",
-      rating: 4.5,
-      comment: "Outstanding product quality and customer service.",
+      name: "Vishal Bhagat",
+      rating: 4.7,
+      comment: "Creative, compelling content that perfectly matches our brand voice!",
     },
   ];
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -141,23 +146,24 @@ const ReviewPage = () => {
   return (
     <div
       style={{
-        backgroundImage: "url(" + backImg + ")",
+        backgroundImage: `url(${theme==='dark'?backImg:whitebg})`,
         backgroundSize: "cover",
       }}
+      className=" text-black dark:text-white "
     >
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-600 text-white p-6">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center p-6">
         OUR CUSTOMER STORIES
       </h2>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-2">
         {/* Main Review Card */}
 
-        <div className="bg-gray-800 bg-opacity-45 text-white border-1 rounded-2xl shadow-[1px_2px_26px_7px_rgba(59,_130,_246,_0.5)] p-6 mx-4 mb-6">
+        <div className="bg-gray-950 dark:bg-gray-800 bg-opacity-45  border-1 rounded-2xl shadow-[1px_2px_26px_7px_rgba(59,_130,_246,_0.5)] p-6 mx-4 mb-6">
           <h1 className="text-3xl font-bold mb-2">Customer Reviews</h1>
           <div className="flex items-center mb-2">
             <span className="text-4xl font-bold mr-4">4.6</span>
             <div className="flex items-center">
               {renderStars(4.6)}
-              <span className="ml-2 text-gray-600">(234 reviews)</span>
+              <span className="ml-2 ">(234 reviews)</span>
             </div>
           </div>
 
@@ -196,24 +202,24 @@ const ReviewPage = () => {
 
         {/* Top Reviews Section */}
         <div className="space-y-6 mb-4">
-          <h2 className="border-3 text-white text-2xl font-bold mb-6 ml-3">
+          <h2 className="border-3  text-2xl font-bold mb-6 ml-3">
             Top Reviews
           </h2>
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="bg-gray-800 bg-opacity-25 text-white rounded-xl shadow-lg p-4 transition-transform hover:scale-105 hover:shadow-[1px_2px_26px_7px_rgba(249,_115,_22,_0.5)] mx-4"
+              className="bg-gray-950 dark:bg-gray-800 bg-opacity-25 rounded-xl shadow-lg p-4 transition-transform hover:scale-105 hover:shadow-[1px_2px_26px_7px_rgba(249,_115,_22,_0.5)] mx-4"
             >
               <div className="flex items-center">
                 <div>
                   <h3 className="font-semibold">{review.name}</h3>
-                  <div className="text-white flex items-center">
+                  <div className=" flex items-center">
                     {renderStars(review.rating)}
-                    <span className="ml-2 text-white">({review.rating})</span>
+                    <span className="ml-2">({review.rating})</span>
                   </div>
                 </div>
               </div>
-              <p className="text-white">{review.comment}</p>
+              <p className="">{review.comment}</p>
             </div>
           ))}
         </div>

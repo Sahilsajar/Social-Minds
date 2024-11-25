@@ -372,7 +372,7 @@ c129 -180 131 -180 131 16 0 127 -2 150 -15 150 -18 0 -16 9 -19 -112 -1 -54
             </g>
           </svg>
         )}
-        <Hr className="top-[59px] fixed md:w-[98%] w-[90%]" />
+        <Hr className="top-[59px] fixed md:w-[98%] w-[90%] dark:bg-gray-500 bg-black h-[3px]" />
         {openNav && (
           <NavDiv className="flex flex-col md:hidden cursor-pointer items-center justify-start gap-5 absolute top-[58px] left-0 right-0 h-[calc(100vh-58px)] text-gray-600 bg-slate-300 dark:bg-black dark:text-white">
             <Link to="/" className="hover:text-blue-300 mt-10 text-2xl">
