@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../resource/service.css";
+import { Link } from "react-router-dom";
 
 const postsData = [
   {
@@ -105,12 +106,12 @@ function Service() {
                 </div> */}
                 <h1 className="main-post__title mb-4">{post.title}</h1>
                 <p className="mb-4">{post.msg}</p>
-                <a className="main-post__link" href="#">
+                <Link to={'/service'} className="main-post__link">
                   {/* <span className="main-post__link-text">Find out more</span> */}
                   <button className="main-post__link-text button-64">
-                    <span className="text">View All</span>
+                   <span className="text">View All</span>
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           ))}
