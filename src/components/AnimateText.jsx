@@ -29,7 +29,7 @@ const AnimateText = ({ start = 0, end, duration = 500, interval = 5000 }) => {
   }, [start, end, duration, interval]);
 
   return (
-    <span className="font-bold">
+    <span className="font-extrabold">
       {count}
     </span>
   );
