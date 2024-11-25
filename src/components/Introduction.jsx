@@ -13,7 +13,7 @@ function Introduction() {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div className="BG-slate-950">
+    <div className="bg-slate-950">
       <div id="intro-container" className="flex max-w-screen-xl w-full mx-auto">
         <TypeAni isFullWidth={isFullWidth}></TypeAni>
         <IntroAniMain isFullWidth={isFullWidth}></IntroAniMain>
