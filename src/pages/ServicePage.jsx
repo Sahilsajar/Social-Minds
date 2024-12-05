@@ -7,7 +7,7 @@ const Postcard = ({ color, imgSrc, title, date, previewText, duration,theme }) =
   
   <article className={`${theme==='dark'?`postcard dark ${color}`:`postcard ${color}`}`}>
     <a className="postcard__img_link servicePageAnchor" href="#">
-      <img className="postcard__img" src={imgSrc} alt="Image Title" />
+      <img className="postcard__img" src={imgSrc} alt={title} />
     </a>
     <div className={`${theme==='dark'?'postcard__text':'postcard__text text-black'}`}>
       <h1 className={`postcard__title ${color}`}>
