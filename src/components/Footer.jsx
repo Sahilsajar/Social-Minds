@@ -305,12 +305,14 @@ c129 -180 131 -180 131 16 0 127 -2 150 -15 150 -18 0 -16 9 -19 -112 -1 -54
           <div className="flex gap-4 mt-4 ">
             <a
               href="https://www.facebook.com/profile.php?id=61565911590214&mibextid=LQQJ4d&mibextid=LQQJ4d"
+              aria-label="facebook/socialmindss"
               className="hover:opacity-75 text-xl"
             >
               <FaFacebook />
             </a>
             <a
               href="https://www.instagram.com/socialmindsss?igsh=MXRpenduYjUwOXRtaw%3D%3D"
+              aria-label="instagram/socialmindss"
               className="hover:opacity-75 text-xl"
             >
               <FaInstagram />
@@ -324,27 +326,27 @@ c129 -180 131 -180 131 16 0 127 -2 150 -15 150 -18 0 -16 9 -19 -112 -1 -54
             <h2 className="text-2xl font-semibold mb-4">Our Services</h2>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:underline" aria-label="Explore Graphic Design Services">
                   Graphic Designs
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:underline" aria-label="Learn about Social Media Marketing">
                   Social Media Marketing
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:underline" aria-label="Discover Web Solutions"> 
                   Web Solutions
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:underline" aria-label="Get Performance Marketing Services">
                   Performance Marketing
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:underline" aria-label="Read about Content Writing Services">
                   Content Writing
                 </a>
               </li>
@@ -404,6 +406,7 @@ c129 -180 131 -180 131 16 0 127 -2 150 -15 150 -18 0 -16 9 -19 -112 -1 -54
         <a
           href="https://www.ultimatecoder.in/"
           className="text-blue-400 hover:underline"
+          aria-label="ultimatecoder-socialmindss.co"
         >
           Ultimate Coder
         </a>
