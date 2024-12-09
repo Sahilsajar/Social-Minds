@@ -4,7 +4,6 @@ import emailjs from "emailjs-com";
 import { useNavigate } from "react-router-dom";
 import ThankYou from "../pages/ThankYou";
 import { ThemeContext } from "../themeContext/ThemeContext";
-import whitebg from "../../public/whitebg.jpg";
 
 function Contact() {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -45,7 +44,7 @@ function Contact() {
   return (
     <div
       style={{
-        backgroundImage: `url(${theme==='dark'?backImg:whitebg})`,
+        backgroundImage: `url(${theme==='dark'?backImg:'/whitebg.jpg'})`,
         backgroundSize: "cover",
       }}
       className="flex flex-col md:flex-row mt-[56px] min-h-[calc(100vh-56px)] p-8 dark:text-white text-black"

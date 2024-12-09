@@ -3,8 +3,6 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 //import backImg from "../assets/backgroundReview.jpg";
 import backImg from "../assets/Background/2.jpg";
-import revImg from "../assets/backgroundReview.jpg";
-import whitebg from "../../public/whitebg.jpg";
 import { ThemeContext } from "../themeContext/ThemeContext";
 
 const ReviewPage = () => {
@@ -146,7 +144,7 @@ const ReviewPage = () => {
   return (
     <div
       style={{
-        backgroundImage: `url(${theme==='dark'?backImg:whitebg})`,
+        backgroundImage: `url(${theme==='dark'?backImg:'/whitebg.jpg'})`,
         backgroundSize: "cover",
       }}
       className=" text-black dark:text-white"
@@ -227,7 +225,7 @@ const ReviewPage = () => {
 
       {/* Review Model */}
       {showForm && (
-        <div className="fixed inset-0 bg-black  bg-opacity-50 flex items-center justify-center p-4 z-10">
+        <div className="fixed inset-0 bg-black  bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white dark:bg-black  rounded-xl p-6 max-w-md w-full">
             <h3 className="text-2xl font-bold mb-4">Write Your Review</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
