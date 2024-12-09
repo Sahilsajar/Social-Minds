@@ -14,7 +14,6 @@ const Navbar = () => {
     setOpenNav(false);
   }, [location]);
 
-  console.log(theme);
   return (
     <>
       <StyledDiv className="flex items-center text-gray-600 bg-white dark:bg-dark dark:text-white fixed top-0 left-0 right-0 z-50">
@@ -293,16 +292,16 @@ c129 -180 131 -180 131 16 0 127 -2 150 -15 150 -18 0 -16 9 -19 -112 -1 -54
         </Link>
 
         <div className="hidden md:flex items-center absolute right-0 mr-20 gap-9 cursor-pointer w-fit">
-          <Link to="/" className="hover:text-blue-300">
+          <Link to="/" className="dark:hover:text-blue-300 hover:text-blue-600">
             Home
           </Link>
-          <Link to="/service" className="hover:text-blue-300">
+          <Link to="/service" className="dark:hover:text-blue-300 hover:text-blue-600">
             Services
           </Link>
-          <Link to="/about" className="hover:text-blue-300">
+          <Link to="/about" className="dark:hover:text-blue-300 hover:text-blue-600">
             About
           </Link>
-          <Link to="/Contact" className="hover:text-blue-300">
+          <Link to="/Contact" className="dark:hover:text-blue-300 hover:text-blue-600">
             Contact Us
           </Link>
         </div>

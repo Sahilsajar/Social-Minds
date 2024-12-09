@@ -2,7 +2,6 @@ import React from "react";
 import IntroAni1 from "./IntroAni1";
 import IntroAni2 from "./IntroAni2";
 function IntroAniMain({ isFullWidth }) {
-  console.log(isFullWidth);
   return (
     <div
       className={

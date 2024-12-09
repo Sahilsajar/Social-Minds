@@ -7,6 +7,7 @@ import {
   FaShareAlt,
 } from "react-icons/fa";
 import { ThemeContext } from "../themeContext/ThemeContext";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -326,29 +327,32 @@ c129 -180 131 -180 131 16 0 127 -2 150 -15 150 -18 0 -16 9 -19 -112 -1 -54
             <h2 className="text-2xl font-semibold mb-4">Our Services</h2>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:underline" aria-label="Explore Graphic Design Services">
+
+                <Link to={'/service'} className="hover:underline">
+
                   Graphic Designs
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline" aria-label="Learn about Social Media Marketing">
-                  Social Media Marketing
-                </a>
+                <Link to={'/service'} className="hover:underline">
+                 Social Media Marketing
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline" aria-label="Discover Web Solutions"> 
+                <Link to={'/service'} className="hover:underline">
                   Web Solutions
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline" aria-label="Get Performance Marketing Services">
+
+                <Link to={'/service'} className="hover:underline">
                   Performance Marketing
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline" aria-label="Read about Content Writing Services">
+                <Link to={'/service'} className="hover:underline">
                   Content Writing
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

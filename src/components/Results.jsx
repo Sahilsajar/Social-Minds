@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import AnimateText from "./AnimateText";
 import Graph from "./Graph";
 import backImg from "../assets/Background/1.jpg";
-import whitebg from "../../public/whitebg.jpg";
 import { ThemeContext } from "../themeContext/ThemeContext";
 
 
@@ -12,7 +11,7 @@ const Results = () => {
   return (
     <div
       style={{
-        backgroundImage: `url(${theme==='dark'?backImg:whitebg})`,
+        backgroundImage: `url(${theme==='dark'?backImg:'/whitebg.jpg'})`,
         backgroundSize: "cover",
       }}
       className=" h-screen text-black dark:text-white border-b-4 dark:border-none"
