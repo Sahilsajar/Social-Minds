@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from '../../public/astronaut.json'; 
+import animationData from '../assets/astronaut.json'; 
 
 const NotFoundPage = () => {
   // Lottie animation options
