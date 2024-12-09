@@ -71,34 +71,34 @@ function Contact() {
             required
             name="Name"
             placeholder="First Name"
-            className="md:w-full outline-none p-2 border w-full dark:border-gray-300 rounded"
+            className="md:w-full outline-none p-2 border w-full dark:border-gray-300 rounded dark:text-white dark:bg-gray-700"
           />
           <input
             name="email"
             required
             type="email"
             placeholder="Email Address"
-            className="w-full border outline-none p-2 rounded border-gray-300"
+            className="w-full border outline-none p-2 rounded border-gray-300 dark:text-white dark:bg-gray-700"
           />
           <input
             name="company"
             required
             type="text"
             placeholder="Company Name"
-            className="w-full border outline-none p-2 rounded border-gray-300"
+            className="w-full border outline-none p-2 rounded border-gray-300 dark:text-white dark:bg-gray-700"
           />
           <input
             name="phone"
             required
             type="tel"
             placeholder="Phone Number"
-            className="w-full outline-none border p-2 rounded border-gray-300"
+            className="w-full outline-none border p-2 rounded border-gray-300 dark:text-white dark:bg-gray-700"
           />
           <textarea
             name="message"
             required
             maxLength="800"
-            className="w-full outline-none p-2 border border-gray-300 rounded"
+            className="w-full outline-none p-2 border border-gray-300 rounded  dark:text-white dark:bg-gray-700"
             placeholder="How can we help?"
             
           />

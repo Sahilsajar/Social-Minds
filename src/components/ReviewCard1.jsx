@@ -149,7 +149,7 @@ const ReviewPage = () => {
         backgroundImage: `url(${theme==='dark'?backImg:whitebg})`,
         backgroundSize: "cover",
       }}
-      className=" text-black dark:text-white "
+      className=" text-black dark:text-white"
     >
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center p-6">
         OUR CUSTOMER STORIES
@@ -227,12 +227,12 @@ const ReviewPage = () => {
 
       {/* Review Model */}
       {showForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-xl p-6 max-w-md w-full">
+        <div className="fixed inset-0 bg-black  bg-opacity-50 flex items-center justify-center p-4 z-10">
+          <div className="bg-white dark:bg-black  rounded-xl p-6 max-w-md w-full">
             <h3 className="text-2xl font-bold mb-4">Write Your Review</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-gray-700 mb-2" htmlFor="name">
+                <label className="block text-gray-700 dark:text-white mb-2" htmlFor="name">
                   Name
                 </label>
                 <input
@@ -242,7 +242,7 @@ const ReviewPage = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   className={`w-full p-2 border rounded-lg ${
-                    errors.name ? "border-red-500" : "border-gray-300"
+                    errors.name ? "border-red-500" : "border-gray-300 dark:bg-gray-700 dark:text-white"
                   }`}
                   aria-invalid={errors.name ? "true" : "false"}
                 />
@@ -254,7 +254,7 @@ const ReviewPage = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 mb-2">Rating</label>
+                <label className="block text-gray-700 dark:text-white mb-2">Rating</label>
                 <div className="flex space-x-1">
                   {[...Array(5)].map((_, index) => (
                     <button
@@ -278,7 +278,7 @@ const ReviewPage = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 mb-2" htmlFor="review">
+                <label className="block text-gray-700 dark:text-white mb-2" htmlFor="review">
                   Review
                 </label>
                 <textarea
@@ -287,7 +287,7 @@ const ReviewPage = () => {
                   value={formData.review}
                   onChange={handleInputChange}
                   className={`w-full p-2 border rounded-lg ${
-                    errors.review ? "border-red-500" : "border-gray-300"
+                    errors.review ? "border-red-500" : "border-gray-300 dark:bg-gray-700 dark:text-white"
                   }`}
                   rows="4"
                   aria-invalid={errors.review ? "true" : "false"}
