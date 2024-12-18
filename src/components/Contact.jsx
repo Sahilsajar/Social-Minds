@@ -52,8 +52,7 @@ function Contact() {
       {/* Left Section */}
       <div className="md:w-1/2 md:items-center text-center flex flex-col mt-4 mb-6 md:mb-0">
         <h1 className=" lg:text-12xl font-bold text-6xl">YOUR</h1>
-        <h1 className=" lg:text-12xl font-bold text-6xl">SOCIAL</h1>
-        <h1 className="lg:text-12xl font-bold text-6xl">MEDIA</h1>
+        <h1 className=" lg:text-12xl font-bold text-6xl">BRAND</h1>
         <h1 className=" lg:text-12xl font-bold text-6xl">DESERVES</h1>
         <h1 className="lg:text-12xl font-bold text-6xl">A BOOST</h1>
         <p className="text-2xl md:text-4xl lg:text-4xl">Our team is ready</p>

@@ -90,7 +90,7 @@ function Service() {
           style={{ width: `${progress}%` }}
         ></div>
       </div>
-      <div className="text-center bg-transparent absolute z-30 w-full text-white text-5xl top-16">
+      <div className="text-center bg-transparent absolute z-10 w-full text-white text-5xl top-16">
         <h1>Services</h1>
       </div>
       {/* backSlides */}

@@ -2,7 +2,7 @@ import React from "react";
 
 const FloatingContact = ({ closeForm }) => {
   return (
-    <div className="fixed top-0 right-0 w-80 bg-white shadow-lg h-full z-50 transform transition-transform duration-500">
+    <div className="fixed top-0 right-0  bg-white shadow-lg h-full z-50 transform transition-transform duration-500">
       <div className="flex justify-between p-4">
         <h2 className="text-xl font-bold">Contact Us</h2>
         <button onClick={closeForm} className="text-xl text-gray-600">
