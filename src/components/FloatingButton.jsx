@@ -12,9 +12,11 @@ const FloatingButton = () => {
 
   // List of paragraphs with multiple lines
   const paragraphs = [
-    "BOOST YOUR BUSINESS RISK FREE\nSign up now and get started!",
-    "SIGN UP FOR OUR 7-DAY FREE TRIAL\nExperience the benefits risk-free.",
-    "NO PAYMENT UNTIL YOU ARE SATISFIED WITH THE RESULTS\nCancel anytime if you're not happy.",
+    "BOOST YOUR BUSINESS RISK FREE!",
+    "Sign up now and get started!",
+    "Experience the benefits risk-free.",
+    "NO PAYMENT UNTIL YOU ARE SATISFIED WITH THE RESULTS",
+    "Cancel anytime if you're not happy"
   ];
 
   // Split paragraphs into arrays of lines
@@ -46,7 +48,7 @@ const FloatingButton = () => {
           }
           return prevIndex + 1; // Move to next line
         });
-      }, 2000); // 2-second delay between each line
+      }, 3000); // 2-second delay between each line
 
       return () => clearInterval(interval); // Cleanup on component unmount
     }
@@ -80,14 +82,15 @@ const FloatingButton = () => {
 
       {/* Contact Form positioned at the bottom-right corner */}
       {showForm && (
-        <div className="fixed bottom-6 right-6 w-96 p-4 text-black dark:text-white text-xl font-semibold bg-white dark:bg-slate-400 shadow-lg rounded-lg z-20">
+        <div className="fixed bottom-6 xs:right-6 right-4 xs:w-96 w-[90%] p-4 text-black dark:text-white text-xl font-semibold bg-white dark:bg-slate-400 shadow-lg rounded-lg z-20">
           {/* Text container */}
-          <div className="relative h-24 overflow-hidden">
+          <div className="relative xs:h-24 h-20 overflow-hidden">
             {/* Show one line at a time from the paragraph */}
+            <p className="xs:text-lg text-[16px] text-center animate-pulse glowing-text">SIGN UP FOR OUR 7-DAY FREE TRIAL</p>
             {splitParagraphs[visibleTextIndex].slice(0, lineIndex + 1).map((line, index) => (
               <p
                 key={index}
-                className={`font-bold mb-4 text-center transition-all duration-500 transform ${
+                className={`font-semibold xs:text-lg text-[14px] leading-5 text-center transition-all duration-500 transform ${
                   index === lineIndex
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
@@ -99,7 +102,7 @@ const FloatingButton = () => {
           </div>
 
           {/* Contact form */}
-          <form className="dark:text-white text-black"
+          <form className="dark:text-white text-black "
           onSubmit={handleContact}>
             <div className="mb-4">
               <label className="block ">Name</label>
